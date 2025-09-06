@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SimFieldWeb v1.0 by taikun</title>
+	<meta name="description" content="SimFieldWeb v1.0 by taikun - 生態系について学ぶための教育用シミュレーションWebアプリケーションです。">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<h1 style="display: none;">本コンテンツは生態系について学ぶための教育目的です。</h1>
+	<main>
+		<div id="left">
+			<noscript>
+				<h1>JavaScriptが無効になっています</h1>
+			</noscript>
+			<canvas id="canvas"></canvas>
+			<div class="flex">
+				<button onclick="init();startSim();">シミュレーション</button>
+				<button onclick="stopSim();">停止</button>
+				<p style="font-size: 0.5em;">SimFieldWeb by taikun. <a target="_blank"
+						href="https://www.vector.co.jp/soft/win95/edu/se421207.html">Original</a>
+				</p>
+			</div>
+			<div class="flex">
+				<p id="days" style="margin: 0 0;font-size:1.2em">0日</p>
+				<p>
+					　　🐢 <input type="range" name="speed" min="1" max="50" id="speed" value="5"
+						onchange="speedChange(document.getElementById('speed').value)"> 🐰
+				</p>
+			</div>
+		</div>
+		<div>
+			<table>
+				<tbody id="config">
+				</tbody>
+			</table>
+			<P id="info"><br></P>
+			<canvas id="graph" width="400" height="300"></canvas>
+		</div>
+		<script type="text/javascript" src="script.js"></script>
+	</main>
+	<div style="display: none;">
+		<img class='icon' src='./images/potted_plant_3d.png' id="plant_icon">
+		<img class='icon' src='./images/zebra_3d.png' id="zebra_icon">
+		<img class='icon' src='./images/lion_3d.png' id="lion_icon">
+	</div>
+	<style>
+		* {
+			font-family: "M PLUS 1", "Noto Color Emoji", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+
+		}
+
+		body {
+			overflow: hidden;
+			margin: 0 0;
+			width: 100vw;
+			height: 100vh;
+			background: linear-gradient(to right bottom, #FFFFFF, #fffecc);
+		}
+
+		main {
+			padding: 2vh 2vw;
+			height: 96%;
+			display: flex;
+		}
+
+		#left {
+			width: min(50vw, 80vh);
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding-right: 10px;
+		}
+
+		td {
+			font-size: 1.25em;
+
+		}
+
+		input {
+			font-size: 1em;
+			width: 100px;
+			text-align: right;
+			padding: 0 0;
+		}
+
+		input:invalid {
+			background-color: rgb(255, 153, 153);
+		}
+
+		.green {
+			color: green;
+		}
+
+		.red {
+			color: red;
+		}
+
+		.blue {
+			color: blue;
+		}
+
+		button {
+			margin: 5px 5px;
+			background-color: white;
+			font-size: 1.5em;
+		}
+
+		.flex {
+			display: flex;
+			align-items: center;
+		}
+
+		#info {
+			margin: 5px 0;
+		}
+
+		.icon {
+			height: 1.3em;
+			float: left;
+		}
+	</style>
+</body>
+
+</html>
